@@ -9,17 +9,313 @@
 		<script src="scripts/jquery-1.9.1.min.js"></script>
 		<script src="scripts/jquery.mobile-1.3.1.min.js"></script>
 		<script src="scripts/jquery.passstrength.min.js"></script>
-
+		<style>
+			.content {background:url(images/bg_06.png)no-repeat;background-size:cover;}
+			p{font-size:13px;line-height:1px;}
+			a{font-size:13px;line-height:1px;}
+			.left {float:left;}
+			p.black {color:#333;}
+			p.grey {color:#777;}
+			p.purple {color:#B448C9;font-weight:bold;}
+			.icon {float:left;/*border:1px solid #ccc;*/height:80px;width:80px;font-size:24px;margin:5px;padding:3%;}
+			.icons {float:left;background-color:#333;border:1px solid #ccc;height:60px;width:60px;font-size:24px;margin:5px;padding:2%;}
+			.rest_icon {float:left;width:40px;margin-right:10px; padding:3px;border:1px solid #ccc; box-shadow:0 0 3px #ccc; border-radius:3px;}
+			.table-list td{border-bottom:1px solid #ccc;padding:10px 20px;}
+			/*.wine-list tr {border-bottom:1px solid #ccc;padding:5px 0px;}*/
+			.wine_icon {width:20px; float:left;}
+			.add_btn{background:#B448C9;color:#fff !important;}
+			.drink_btn {background:#B448C9;color:#fff !important;}
+			@media all and (max-width: 50em) {
+				.my-breakpoint .ui-block-a, 
+				.my-breakpoint .ui-block-b, 
+				.my-breakpoint .ui-block-c,
+				.my-breakpoint .ui-block-d,
+				.my-breakpoint .ui-block-e { 
+					width: 100%; 
+					float:none; 
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<div data-role="page" data-theme="a" id="login">
+
+		<!-- Home Screen -->
+		<div data-role="page" data-theme="a" id="home" class="content">
+			<!-- header-->
 			<div data-role="header" data-position="inline">
-				<img src="images/raisinable-logo.png" width="50" />
-				<form action="search.html"><input type="search" name="search-mini" id="search-mini" value="" data-mini="true" /></form>
+				<img src="images/raisinable-logo.png" height="50" data-inline="true"/>
+				<div class="ui-btn-right">
+					<form action="#winelist" style="width:300px;">
+						<input placeholder="enter restaurant or wine name" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+					</form>
+				</div>
 			</div>
-			<div data-role="content" data-theme="a">
-				
+			<div data-role="content" class="content">
+				<div style="margin:auto;text-align:center;"><img src="images/banner.png" /></div>
+				<div>
+					<div class="icon"><a href="#locateme"><img src="images/1.png"></a></div>
+					<div class="icon"><img src="images/2.png"></div>
+					<div class="icon"><img src="images/3.png"></div>
+					<div class="icon"><img src="images/4.png"></div>
+					<div class="icon"><img src="images/5.png"></div>
+					<div class="icon"><a href="#winelist"><img src="images/6.png"></a></div>
+					<div class="icon"><img src="images/7.png"></div>
+					<div class="icon"><img src="images/8.png"></div>
+					<div class="icon"><img src="images/9.png"></div>
+					
+				</div>
+			</div>
+			<!-- footer -->
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<img src="images/tb.png" width="100%" />
+				</div><!-- /navbar -->
 			</div>
 		</div>
+		<!-- Home Screen ends-->
+		
+		
+		
+		<!-- wine list screen -->
+		<div data-role="page" data-theme="a" id="winelist" class="content">
+			<div data-role="header" data-position="inline">
+				<img src="images/raisinable-logo.png" height="50" data-inline="true"/>
+				<div class="ui-btn-right">
+					<form action="search.html" style="width:300px;">
+						<input placeholder="enter restaurant, zip or subway" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+					</form>
+				</div>
+			</div>
+			<div data-role="content" style="padding:0;">
+				<div class="wine-list">
+					<table width="100%">
+						<tr>
+							<td width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">Little Owl's Wine List</p>
+								<p class="grey">90 Bedford Street</p>
+								<p class="grey">20 Wines</p>
+								<p class="purple">Raisinable Rating: OK</p>
+								<a class="drink_btn">Drink-In</a>
+							</td>				
+						</tr>
+						<tr width="100%">
+							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
+							<td class="left" width="73%">
+								
+								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
+								<p class="grey">Veneto,	Italy, NV	</p>
+							</td>
+							<td class="left" width="10%"><p>$48</p></td>
+							<td class="left" width="10%"><p>336%</p></td>
+						</tr>
+						<tr width="100%">
+							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
+							<td class="left" width="73%">
+								
+								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
+								<p class="grey">Veneto,	Italy, NV	</p>
+							</td>
+							<td class="left" width="10%"><p>$44</p></td>
+							<td class="left" width="10%"><p>267%</p></td>
+						</tr>
+						<tr width="100%">
+							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
+							<td class="left" width="73%">
+								
+								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
+								<p class="grey">Veneto,	Italy, NV	</p>
+							</td>
+							<td class="left" width="10%"><p>$48</p></td>
+							<td class="left" width="10%"><p>140%</p></td>
+						</tr>
+						<tr width="100%">
+							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
+							<td class="left" width="73%">
+								
+								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
+								<p class="grey">Veneto,	Italy, NV	</p>
+							</td>
+							<td class="left" width="10%"><p>$78</p></td>
+							<td class="left" width="10%"><p>81%</p></td>
+						</tr>
+						<tr width="100%">
+							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
+							<td class="left" width="73%">
+								
+								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
+								<p class="grey">Veneto,	Italy, NV	</p>
+							</td>
+							<td class="left" width="10%"><p>$78</p></td>
+							<td class="left" width="10%"><p>81%</p></td>
+						</tr>
+						<tr>
+							<td><a class="add_btn">ADD/EDIT</a></td>					
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<img src="images/tb.png" width="100%" />
+				</div><!-- /navbar -->
+			</div>
+		</div>
+		<!-- wine list screen ends-->
+
+
+
+		<!-- locate me screen -->
+		<div data-role="page" data-theme="a" id="locateme">
+			<!-- header-->
+			<div data-role="header" data-position="inline">
+				<img src="images/raisinable-logo.png" height="50" data-inline="true"/>
+				<div class="ui-btn-right">
+					<form action="#winelist" style="width:300px;">
+						<input placeholder="enter restaurant or wine name" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+					</form>
+				</div>
+			</div>
+			<!-- content -->
+			<div data-role="content" style="padding:0;" class="content">
+				<div class="table-list">
+					<table width="100%">
+						<tr>
+							<td width="100%"><p>Are you in one of these restaurants?</p></td>				
+						</tr>
+						<tr width="100%">
+							
+							<td class="left" width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">Little Owl</p>
+								<p class="grey">90 Bedford Street</p>
+								<p class="purple">Raisinable Rating: OK</p>
+							</td>
+						</tr>
+						<tr width="100%">
+							<td class="left" width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">Perilla</p>
+								<p class="grey">9 Jones Street</p>
+								<p class="purple">Raisinable Rating: Good</p>
+							</td>
+						</tr>
+						<tr width="100%">
+							<td class="left" width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">Pinto</p>
+								<p class="grey">118 Christopher Street</p>
+								<p class="purple">Raisinable Rating: None</p>
+							</td>	
+						</tr>
+						<tr width="100%">
+							<td class="left" width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">One If By Land, Two If By Sea</p>
+								<p class="grey">17 Barrow Street</p>
+								<p class="purple">Raisinable Rating: Excellent</p>
+							</td>		
+						</tr>
+						<tr width="100%">
+							<td class="left" width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">One If By Land, Two If By Sea</p>
+								<p class="grey">17 Barrow Street</p>
+								<p class="purple">Raisinable Rating: Excellent</p>
+							</td>		
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!-- footer -->
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<img src="images/tb.png" width="100%" />
+				</div><!-- /navbar -->
+			</div>
+		</div>
+		<!-- locate me screen end-->
+		
+		
+		<!-- wine profile screen -->
+		<div data-role="page" data-theme="a" id="wine-profile" class="content">
+			<!-- header-->
+			<div data-role="header" data-position="inline">
+				<img src="images/raisinable-logo.png" height="50" data-inline="true"/>
+				<div class="ui-btn-right">
+					<form action="#winelist" style="width:300px;">
+						<input placeholder="enter restaurant or wine name" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+					</form>
+				</div>
+			</div>
+			<!-- content -->
+			<div data-role="content" style="padding:0;">
+				<div class="table-list">
+					<table width="100%">
+						<tr>
+							<td width="100%"><p>Are you in one of these restaurants?</p></td>				
+						</tr>
+						<tr width="100%">
+							
+							<td class="left" width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">Little Owl</p>
+								<p class="grey">90 Bedford Street</p>
+								<p class="purple">Raisinable Rating: OK</p>
+							</td>
+							<td class="left" width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">Perilla</p>
+								<p class="grey">9 Jones Street</p>
+								<p class="purple">Raisinable Rating: Good</p>
+							</td>
+							<td class="left" width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">Pinto</p>
+								<p class="grey">118 Christopher Street</p>
+								<p class="purple">Raisinable Rating: None</p>
+							</td>	
+							<td class="left" width="100%">
+								<img class="rest_icon" src="images/2.png">
+								<p class="black">One If By Land, Two If By Sea</p>
+								<p class="grey">17 Barrow Street</p>
+								<p class="purple">Raisinable Rating: Excellent</p>
+							</td>		
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!-- footer -->
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<img src="images/tb.png" width="100%" />
+				</div><!-- /navbar -->
+			</div>
+		</div>
+		<!-- locate me screen end-->
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
