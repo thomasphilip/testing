@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.blackcobrastudios.raisinable"
+        id        = "com.nyxdigital.raisinable"
         version   = "1.0.0">
 
     <name>Raisinable</name>
@@ -12,8 +12,8 @@
         Raisinable
     </description>
 
-    <author href="http://ec-interactive.com" email="adverts@blackcobrastudios.com">
-        Blackcobra Studios
+    <author href="http://ec-interactive.com" email="rajesh@nyxdigital.com">
+        NYX Digital
     </author>
 
     <!--
