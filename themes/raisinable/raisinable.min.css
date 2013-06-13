@@ -53,6 +53,8 @@
     color: #333333;
     text-shadow: 0  1px  0  #ffffff;
     background: #f9f9f9;
+	background:url(images/bg_06.png) no-repeat;
+	background-size:cover;
     background-image: -webkit-gradient(linear,left top,left bottom,from( #f9f9f9 ),to( #eeeeee ));
     background-image: -webkit-linear-gradient( #f9f9f9,#eeeeee );
     background-image: -moz-linear-gradient( #f9f9f9,#eeeeee );
