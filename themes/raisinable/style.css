@@ -1,0 +1,26 @@
+.ui-page {background:url(images/bg_06.png);background-size:cover;}
+p{font-size:13px;line-height:1px;}
+a{font-size:13px;line-height:1px;}
+.left {float:left;}
+p.black {color:#333;}
+p.grey {color:#777;}
+p.purple {color:#B448C9;font-weight:bold;}
+.icon {float:left;/*border:1px solid #ccc;*/height:80px;width:80px;font-size:24px;margin:5px;padding:3%;}
+.icons {float:left;background-color:#333;border:1px solid #ccc;height:60px;width:60px;font-size:24px;margin:5px;padding:2%;}
+.rest_icon {float:left;width:40px;margin-right:10px; padding:3px;border:1px solid #ccc; box-shadow:0 0 3px #ccc; border-radius:3px;}
+.table-list td{border-bottom:1px solid #ccc;padding:10px 20px;}
+/*.wine-list tr {border-bottom:1px solid #ccc;padding:5px 0px;}*/
+.wine_icon {width:20px; float:left;}
+.add_btn{background:#B448C9;color:#fff !important;}
+.drink_btn {background:#B448C9;color:#fff !important;}
+.footer img {width:50%; }
+@media all and (max-width: 50em) {
+	.my-breakpoint .ui-block-a, 
+	.my-breakpoint .ui-block-b, 
+	.my-breakpoint .ui-block-c,
+	.my-breakpoint .ui-block-d,
+	.my-breakpoint .ui-block-e { 
+		width: 100%; 
+		float:none; 
+	}
+}
