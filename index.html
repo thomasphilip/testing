@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;" />
 		<title>Raisinable</title>
 		<link rel="stylesheet" href="themes/raisinable/raisinable.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.3.1.min.css" />
@@ -17,10 +17,17 @@
 			$( document ).delegate("#newuser2", "pageinit", function() {
 				$('#password2').passStrengthify({minimum:6, element:$('#passwdout')});
 			});
-
+			$( document ).on("pageinit", function() {
+				document.body.addEventListener('touchmove', function(e) {
+					// Cancel the event
+					e.preventDefault();
+				}, false);
+			});
 		</script>
 		<style>
-			
+			.ui-body-a .ui-link:visited,
+			.ui-body-a .ui-link
+			{color:#832f4e}
 		</style>
 	</head>
 	<body>
@@ -41,22 +48,21 @@
 					<input type="password" name="password" id="password" data-theme="a" />
 					<a href="#forgot">Forgot password?</a>
 					
-					<div>
-						<fieldset class="ui-grid-a">
-							<div class="ui-block-a">
-								<a href="#newuser" data-role="button" data-mini="true" data-theme="b">New Users click here</a>
-							</div>
-							<div class="ui-block-b">
-								<!--<button type="submit" data-mini="true" class="ui-btn-hidden" data-theme="b">Click here to login</button>-->
-								<a href="home.html" rel="external" data-role="button" data-mini="true" data-theme="b">Login</a>
-							</div>
-						</fieldset>
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<a href="#newuser" data-role="button" data-mini="true" data-theme="b">New Users click here</a>
+						</div>
+						<div class="ui-block-b">
+							<!--<button type="submit" data-mini="true" class="ui-btn-hidden" data-theme="b">Click here to login</button>-->
+							<a href="home.html" rel="external" data-role="button" data-mini="true" data-theme="b">Login</a>
+						</div>
+
 					</div>
 					<p>Or, connect with Facebook:</p>
 					
 					<a href="#" data-mini="true"><img src="images/fconnect.png"/></a>
 					<p>
-						<small>By using Raisinable, you affirm that you're of legal drinking age in the country where this app is being accessed &amp; agree to our <u>terms &amp; conditions</u> of business.</small>
+						<small>By using Raisinable, you affirm that you're of legal drinking age in the country where this app is being accessed &amp; agree to our <a href="#" class="alink">terms &amp; conditions</a> of business.</small>
 					</p>
 						
 				</form>
@@ -70,13 +76,13 @@
 				<h1>Sign up</h1>
 				<form action="#newuser2" method="post">
 					<label for="firstname">First Name:</label>
-					<input type="text" name="firstname" id="firstname" />
+					<input type="text" name="firstname" id="firstname" required/>
 					<label for="surname">Surname:</label>
-					<input type="text" name="surname" id="surname" />
+					<input type="text" name="surname" id="surname" required/>
 					<label for="email">Email:</label>
-					<input type="email" name="email" id="email" />
+					<input type="email" name="email" id="email" required/>
 					<label for="emailconfirm">Confirm email:</label>
-					<input type="email" name="emailconfirm" id="emailconfirm" />
+					<input type="email" name="emailconfirm" id="emailconfirm" required/>
 					<label for="gender">Gender:</label>
 					<select name="gender" id="gender" data-theme="b">
 						<option>Select ..</option>
@@ -84,14 +90,14 @@
 						<option value="female">Female</option>
 					</select>
 					<label for="dateofbirth">Age:</label>
-					<input type="date" name="dateofbirth" id="dateofbirth"  />
+					<input type="date" name="dateofbirth" id="dateofbirth" required />
 					
 					<!--button type="submit" data-mini="true" class="ui-btn-hidden" data-theme="b">Next</button-->
 					<a href="#newuser2" data-role="button" data-mini="true" data-theme="b">Next</a>
 					<p>Or, connect with Facebook:</p>
 					
 					<a href="#" data-mini="true"><img src="images/fconnect.png"/></a>
-					<p><small>By using Raisinable, you affirm that you're of legal drinking age in the country where this app is being accessed & agree to our terms &amp; conditions of business.</small></p>
+					<p><small>By using Raisinable, you affirm that you're of legal drinking age in the country where this app is being accessed &amp; agree to our <a href="#" class="alink">terms &amp; conditions</a> of business.</small></p>
 				</form>
 			</div>
 		</div>
@@ -100,17 +106,23 @@
 				<p>Please choose a login name and password:</p>
 				<form action="#newuser2" method="post">		
 					<label for="loginname">Login name:</label>
-					<input type="text" name="loginname" id="loginname2"  />
+					<input type="text" name="loginname" id="loginname2" required />
 					<label for="password">Password:</label>
-					<input type="text" name="password" id="password2"  />
-					<div id='passwdout' style='margin:0.5em auto;'></div>
-					
+					<input type="text" name="password" id="password2" required />
+					<div class="ui-grid-a">
+						<div class="ui-block-a" style="float:right;">
+							<div id='passwdout' style='margin:0.5em auto;'></div>
+						</div>
+					</div>
+					<label for="password_confirm">Confirm Password:</label>
+					<input type="text" name="password" id="password_confirm" required />
+						
 					<!--button type="submit" data-mini="true" class="ui-btn-hidden" data-theme="b">Register</button-->
 					<a href="home.html" rel="external" data-role="button" data-mini="true" data-theme="b">Register</a>
 					<p>Or, connect with Facebook:</p>
 					
 					<a href="#" data-mini="true"><img src="images/fconnect.png"/></a>
-					<p><small>By using Raisinable, you affirm that you're of legal drinking age in the country where this app is being accessed & agree to our terms &amp; conditions of business.</small></p>		
+					<p><small>By using Raisinable, you affirm that you're of legal drinking age in the country where this app is being accessed &amp; agree to our <a href="#">terms &amp; conditions</a> of business.</small></p>		
 				</form>
 			</div>
 		</div>
