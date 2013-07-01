@@ -10,6 +10,8 @@ p.bold_purple_1 {
 	color:#75318D;
 	margin-top: 3px;
 	}
+.footer {padding:0; bottom: -1px;}
+.footer img {width:50%; min-width:45px; }
 
 label.ui-input-text {
 font-size: 15px;
