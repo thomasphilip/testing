@@ -1,367 +1,1806 @@
 <!DOCTYPE html>
+
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-		<title>Raisinable</title>
-		<link rel="stylesheet" href="themes/raisinable/raisinable.min.css" />
-		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.3.1.min.css" />
-		<script src="scripts/jquery-1.9.1.min.js"></script>
-		<script src="scripts/jquery.mobile-1.3.1.min.js"></script>
-		<script src="scripts/jquery.passstrength.min.js"></script>
-		<style type="text/css">
-			.footer {margin-bottom:-1px}
-			.ui-page { background-color:#fff;/*background:url(images/bg_06.png);background-size:cover;*/}
-			p{font-size:13px;line-height:1px;}
-			a{font-size:13px;line-height:1px;}
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+
+	<title>Raisinable</title>
+	<link href="themes/raisinable/raisinable_theme.css" rel="stylesheet">
+	<link href="themes/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet">
+	<link href="custom.css" rel="stylesheet">
+	<script src="scripts/jquery-1.9.1.min.js"></script>
+	<script src="scripts/jquery.mobile-1.3.1.min.js"></script>
+	<script src="scripts/jquery.passstrength.min.js"></script>
+	<style>
+		/*.ui-page {background:url(images/bg_06.png);background-size:cover;}*/
+			p{font-size:13px; }
+			a{font-size:13px;}
 			.left {float:left;}
-			p.black {color:#333;}
-			p.grey {color:#777;}
-			p.purple {color:#B448C9;font-weight:bold;}
+			.right {float:right; font-size: small;}
+			.th {float:left; font-size: 10px;}
+			.vin_color {float:left; color: green;}
+			p.black {color:#333; margin: 0;}
+			p.grey {color:#777;margin: 0;}
+			p.purple {color:#832f4e;font-weight:bold;margin: 0;}
 			.icon {float:left;/*border:1px solid #ccc;*/height:80px;width:80px;font-size:24px;margin:5px;padding:3%;}
 			.icons {float:left;background-color:#333;border:1px solid #ccc;height:60px;width:60px;font-size:24px;margin:5px;padding:2%;}
 			.rest_icon {float:left;width:40px;margin-right:10px; padding:3px;border:1px solid #ccc; box-shadow:0 0 3px #ccc; border-radius:3px;}
 			.table-list td{border-bottom:1px solid #ccc;padding:10px 20px;}
-			.wine_icon {width:20px; float:left;}
 			.add_btn{background:#B448C9;color:#fff !important;}
 			.drink_btn {background:#B448C9;color:#fff !important;}
+			.footer {padding:0; bottom: -1px;}
 			.footer img {width:50%; min-width:45px; }
+			@media all and (max-width: 50em) {
+				.my-breakpoint .ui-block-a, 
+				.my-breakpoint .ui-block-b, 
+				.my-breakpoint .ui-block-c,
+				.my-breakpoint .ui-block-d,
+				.my-breakpoint .ui-block-e { 
+					width: 100%; 
+					float:none; 
+				}
+			}
+			.fullwidth{width:100%;}
+			.remove_checkbox {margin:5px 0 !important; top:0 !important; left:0 !important; width:15px !important; height:15px !important;}
+	</style>
+</head>
+
+<body>
+	<!-- Home Screen -->
+
+	<div class="content" data-role="page" data-theme="a" id="home">
+		<!-- header
+			<div data-role="header" data-position="inline">
+				<!== 
+				<img src="images/raisinable-logo.png" height="50" data-inline="true"/>
+				<div class="ui-btn-right">
+					<form action="#winelist" style="width:300px;">
+						<input placeholder="enter restaurant or wine name" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+					</form>
+				</div>
 			
-		</style>
-		<script type="text/javascript">
-			/*$( document ).on("pageinit", function() {
-				document.body.addEventListener('touchmove', function(e) {
-					// Cancel the event
-					e.preventDefault();
-				}, false);
-			});*/
-		</script>
-	</head>
-	<body>
+			
+			<!==content-->
 
-		<!-- Home Screen -->
-		<div data-role="page" data-theme="a" id="home" class="content">
-			<!-- header-->
-			<div data-role="header" data-position="inline">
-				<table width="100%">
+		<div class="content" data-role="content">
+			<!--<div style="margin:auto;text-align:center;"><img src="images/banner.png" /></div>-->
+
+			<div style="margin:auto;text-align:center;">
+				<div class="ui-grid-b">
+					<div class="ui-block-a"><a href="#locateme" ><img src="images/1.png" /></a></div>
+					<div class="ui-block-b"><a href="#" ><img src="images/2.png" /></a></div>
+					<div class="ui-block-c"><a href="#favorite_wine_list" ><img src="images/6.png"/></a></div>	
+				</div><!-- /grid-b -->
+				<div class="ui-grid-b">
+					<div class="ui-block-a"><a href="#wine_profile" ><img src="images/4.png"/></a></div>
+					<div class="ui-block-b"><a href="#add_restaurant"><img src="images/5.png"/></a></div>
+					<div class="ui-block-c"><a href="#winelist"><img src="images/3.png"/></a></div>
+				</div><!-- /grid-b -->
+				<div class="ui-grid-b">
+					<div class="ui-block-a"><a href="#about_me"><img src="images/7.png"/></a></div>
+					<div class="ui-block-b"><a href="#update_wine" ><img src="images/8.png"/></a></div>
+					<div class="ui-block-c"><a href="#settings" ><img src="images/9.png"/></a></div>
+				</div><!-- /grid-b -->
+				</div>
+		</div><!-- footer -->
+
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div><!-- Home Screen ends-->
+	
+	<!-- wine list screen -->
+
+	<div class="content" data-role="page" data-theme="a" id="winelist">
+		
+		<!--header-->
+		<div data-position="fixed" data-role="header">
+			<img class="ui-btn-right" data-inline="true" height="50" id=
+			"logo_r" src="images/logo-r.png"/> 
+			<!--<img  class="ui-btn-left" id="side_icon" src="images/5.png" height="50" data-inline="true"/>-->
+
+			<div class="search_bar">
+				<form action="search.html">
+					<input data-mini="true" id="search-mini" name="search-mini"
+					placeholder="Enter restaurant, zip or subway" type="search"
+					value="">
+				</form>
+			</div>
+		</div><!--content-->
+
+		<div data-role="content" style="padding:0;">
+			<div class="wine-list">
+				<table style="width:98%;">
 					<tr>
-						<td width="10%"><img src="images/raisinable-logo.png" height="50" width="40" data-inline="true"/></td>
-						<td width="90%"><form action="#winelist">
-							<input placeholder="enter restaurant or wine name" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
-						</form></td>
+						<td width="100%" class="border-none">
+							<span class="right"><a href="#home"><img alt=
+							"drink-in icon" src=
+							"images/footer_03.png"/></a></span> <img class=
+							"rest_icon" src="images/wine-holding.png"/>
+
+							<p class="black"><strong>Little Owl's Wine
+							List</strong></p>
+
+							<p class="grey">90 Bedford Street</p>
+
+							<p class="grey">20 Wines</p>
+							<p class="purple"><strong>Raisinable Rating: OK</strong></p>
+						</td>
 					</tr>
 				</table>
-			</div>
-			<div data-role="content" class="content">
 				
-				<div style="width:100%;margin:auto;text-align:center;">
-
-					<div class="ui-grid-b">
-						<div class="ui-block-a"><a href="#locateme" data-theme="b"><img src="images/1.png"></a></div>
-						<div class="ui-block-b"><a href="#locateme" data-theme="b"><img src="images/2.png"></a></div>
-						<div class="ui-block-c"><a href="#locateme" data-theme="b"><img src="images/3.png"></a></div>
-					</div><!-- /grid-b -->
-					<div class="ui-grid-b">
-						<div class="ui-block-a"><a href="#locateme" data-theme="b"><img src="images/4.png"></a></div>
-						<div class="ui-block-b"><a href="#locateme" data-theme="b"><img src="images/5.png"></a></div>
-						<div class="ui-block-c"><a href="#winelist" data-theme="b"><img src="images/6.png"></a></div>
-					</div><!-- /grid-b -->
-					<div class="ui-grid-b">
-						<div class="ui-block-a"><a href="#winelist" data-theme="b"><img src="images/7.png"></a></div>
-						<div class="ui-block-b"><a href="#winelist" data-theme="b"><img src="images/8.png"></a></div>
-						<div class="ui-block-c"><a href="#winelist" data-theme="b"><img src="images/9.png"></a></div>
-					</div><!-- /grid-b -->
-				</div>
-			</div>
-			<!-- footer -->
-			<div data-role="footer" data-position="fixed" class="footer">
-				<div data-role="navbar">
-					<ul>
-						<li class="ui-block-e"><a href="#home" ><img src="images/footer_icon_01.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_02.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_03.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_04.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_05.png"></a></li>						
-					</ul>
-				</div>
-				<!--div data-role="navbar" class="ui-grid-d">
-						<div class="ui-block-a"><a href="#home"><img src="images/footer_icon_01.png"></a></div>
-						<div class="ui-block-b"><a href="#"><img src="images/footer_icon_02.png"></a></div>
-						<div class="ui-block-c"><a href="#"><img src="images/footer_icon_03.png"></a></div>
-						<div class="ui-block-d"><a href="#winelist" ><img src="images/footer_icon_04.png"></a></div>
-						<div class="ui-block-e"><a href="#"><img src="images/footer_icon_05.png"></a></div>						
-
-				</div--><!-- /navbar -->
-			</div>
-		</div>
-		<!-- Home Screen ends-->
-		
-		
-		
-		<!-- wine list screen -->
-		<div data-role="page" data-theme="a" id="winelist" class="content">
-			<div data-role="header" data-position="inline">
-				<table width="100%">
+				<table style="width:98%;">
 					<tr>
-						<td width="10%"><img src="images/raisinable-logo.png" height="50" width="40" data-inline="true"/></td>
-						<td width="90%"><form action="#winelist">
-							<input placeholder="enter restaurant or wine name" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
-						</form></td>
+						<td class="th col1"></td>
+
+						<td class="th col2"></td>
+
+						<td class="th col3">Restaurant price</td>
+
+						<td class="th col4">% Mark-up</td>
+
+						<td class="th col5">$ Mark-up</td>
+					</tr>
+
+					<tr>
+						<td class="left col1"><img class="wine_icon" src=
+						"images/red.png"/></td>
+
+						<td class="left col2">
+							<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+							Be..</p>
+
+							<p class="grey">Veneto, Italy, NV</p>
+						</td>
+
+						<td class="left col3">
+							<p>$44</p>
+						</td>
+
+						<td class="vin_color col4">
+							<p>267%</p>
+						</td>
+
+						<td class="left col5">
+							<p>$37</p>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="left col1"><img class="wine_icon" src=
+						"images/red.png"/></td>
+
+						<td class="left col2">
+							<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+							Be..</p>
+
+							<p class="grey">Veneto, Italy, NV</p>
+						</td>
+
+						<td class="left col3">
+							<p>$44</p>
+						</td>
+
+						<td class="vin_color col4">
+							<p>267%</p>
+						</td>
+
+						<td class="left col5">
+							<p>$37</p>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="left col1"><img class="wine_icon" src=
+						"images/red.png"/></td>
+
+						<td class="left col2">
+							<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+							Be..</p>
+
+							<p class="grey">Veneto, Italy, NV</p>
+						</td>
+
+						<td class="left col3">
+							<p>$44</p>
+						</td>
+
+						<td class="vin_color col4">
+							<p>267%</p>
+						</td>
+
+						<td class="left col5">
+							<p>$37</p>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="left col1"><img class="wine_icon" src=
+						"images/red.png"/></td>
+
+						<td class="left col2">
+							<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+							Be..</p>
+
+							<p class="grey">Veneto, Italy, NV</p>
+						</td>
+
+						<td class="left col3">
+							<p>$44</p>
+						</td>
+
+						<td class="vin_color col4">
+							<p>267%</p>
+						</td>
+
+						<td class="left col5">
+							<p>$37</p>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="left col1"><img class="wine_icon" src=
+						"images/red.png"/></td>
+
+						<td class="left col2">
+							<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+							Be..</p>
+
+							<p class="grey">Veneto, Italy, NV</p>
+						</td>
+
+						<td class="left col3">
+							<p>$44</p>
+						</td>
+
+						<td class="vin_color col4">
+							<p>267%</p>
+						</td>
+
+						<td class="left col5">
+							<p>$37</p>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="left col1"><img class="wine_icon" src=
+						"images/red.png"/></td>
+
+						<td class="left col2">
+							<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+							Be..</p>
+
+							<p class="grey">Veneto, Italy, NV</p>
+						</td>
+
+						<td class="left col3">
+							<p>$44</p>
+						</td>
+
+						<td class="vin_color col4">
+							<p>267%</p>
+						</td>
+
+						<td class="left col5">
+							<p>$37</p>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="left col1"><img class="wine_icon" src=
+						"images/red.png"/></td>
+
+						<td class="left col2">
+							<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+							Be..</p>
+
+							<p class="grey">Veneto, Italy, NV</p>
+						</td>
+
+						<td class="left col3">
+							<p>$44</p>
+						</td>
+
+						<td class="vin_color col4">
+							<p>267%</p>
+						</td>
+
+						<td class="left col5">
+							<p>$37</p>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="left col1"><img class="wine_icon" src=
+						"images/red.png"/></td>
+
+						<td class="left col2">
+							<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+							Be..</p>
+
+							<p class="grey">Veneto, Italy, NV</p>
+						</td>
+
+						<td class="left col3">
+							<p>$44</p>
+						</td>
+
+						<td class="vin_color col4">
+							<p>267%</p>
+						</td>
+
+						<td class="left col5">
+							<p>$37</p>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="left col1"><img class="wine_icon" src=
+						"images/red.png"/></td>
+
+						<td class="left col2">
+							<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+							Be..</p>
+
+							<p class="grey">Veneto, Italy, NV</p>
+						</td>
+
+						<td class="left col3">
+							<p>$44</p>
+						</td>
+
+						<td class="vin_color col4">
+							<p>267%</p>
+						</td>
+
+						<td class="left col5">
+							<p>$37</p>
+						</td>
 					</tr>
 				</table>
+				<!--<a href="#update_wine" data-rel="popup" data-role="button" data-theme="b" data-inline="true"
+						
+												class="ui-btn-right"    data-mini="true">ADD / EDIT</a>-->
 			</div>
-			<div data-role="content" style="padding:0;">
-				<div class="wine-list">
-					<table width="100%">
-						<tr>
-							<td width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">Little Owl's Wine List</p>
-								<p class="grey">90 Bedford Street</p>
-								<p class="grey">20 Wines</p>
-								<p class="purple">Raisinable Rating: OK</p>
-								<a class="drink_btn">Drink-In</a>
-							</td>				
-						</tr>
-						<tr width="100%">
-							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
-							<td class="left" width="73%">
-								
-								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
-								<p class="grey">Veneto,	Italy, NV	</p>
-							</td>
-							<td class="left" width="10%"><p>$48</p></td>
-							<td class="left" width="10%"><p>336%</p></td>
-						</tr>
-						<tr width="100%">
-							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
-							<td class="left" width="73%">
-								
-								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
-								<p class="grey">Veneto,	Italy, NV	</p>
-							</td>
-							<td class="left" width="10%"><p>$44</p></td>
-							<td class="left" width="10%"><p>267%</p></td>
-						</tr>
-						<tr width="100%">
-							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
-							<td class="left" width="73%">
-								
-								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
-								<p class="grey">Veneto,	Italy, NV	</p>
-							</td>
-							<td class="left" width="10%"><p>$48</p></td>
-							<td class="left" width="10%"><p>140%</p></td>
-						</tr>
-						<tr width="100%">
-							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
-							<td class="left" width="73%">
-								
-								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
-								<p class="grey">Veneto,	Italy, NV	</p>
-							</td>
-							<td class="left" width="10%"><p>$78</p></td>
-							<td class="left" width="10%"><p>81%</p></td>
-						</tr>
-						<tr width="100%">
-							<td class="left" width="5%"><img class="wine_icon" src="images/2.png"></td>
-							<td class="left" width="73%">
-								
-								<p class="black">Prosecco,	Ca’ Furlan ‘Cuvee	Be..</p>
-								<p class="grey">Veneto,	Italy, NV	</p>
-							</td>
-							<td class="left" width="10%"><p>$78</p></td>
-							<td class="left" width="10%"><p>81%</p></td>
-						</tr>
-						<tr>
-							<td><a class="add_btn">ADD/EDIT</a></td>					
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div data-role="footer" data-position="fixed" class="footer">
-				<div data-role="navbar">
-					<ul>
-						<li class="ui-block-e"><a href="#home" ><img src="images/footer_icon_01.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_02.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_03.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_04.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_05.png"></a></li>						
-					</ul>
-				</div>
-			</div>
+		</div><!-- footer -->
+
+<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
-		<!-- wine list screen ends-->
-
-
-
-		<!-- locate me screen -->
-		<div data-role="page" data-theme="a" id="locateme">
-			<!-- header-->
-			<div data-role="header" data-position="inline">
-				<table width="100%">
-					<tr>
-						<td width="10%"><img src="images/raisinable-logo.png" height="50" width="40" data-inline="true"/></td>
-						<td width="90%"><form action="#winelist">
-							<input placeholder="enter restaurant or wine name" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
-						</form></td>
-					</tr>
-				</table>
-			</div>
-			<!-- content -->
-			<div data-role="content" style="padding:0;" class="content">
-				<div class="table-list">
-					<table width="100%">
-						<tr>
-							<td width="100%"><p>Are you in one of these restaurants?</p></td>				
-						</tr>
-						<tr width="100%">
-							
-							<td class="left" width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">Little Owl</p>
-								<p class="grey">90 Bedford Street</p>
-								<p class="purple">Raisinable Rating: OK</p>
-							</td>
-						</tr>
-						<tr width="100%">
-							<td class="left" width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">Perilla</p>
-								<p class="grey">9 Jones Street</p>
-								<p class="purple">Raisinable Rating: Good</p>
-							</td>
-						</tr>
-						<tr width="100%">
-							<td class="left" width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">Pinto</p>
-								<p class="grey">118 Christopher Street</p>
-								<p class="purple">Raisinable Rating: None</p>
-							</td>	
-						</tr>
-						<tr width="100%">
-							<td class="left" width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">One If By Land, Two If By Sea</p>
-								<p class="grey">17 Barrow Street</p>
-								<p class="purple">Raisinable Rating: Excellent</p>
-							</td>		
-						</tr>
-						<tr width="100%">
-							<td class="left" width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">One If By Land, Two If By Sea</p>
-								<p class="grey">17 Barrow Street</p>
-								<p class="purple">Raisinable Rating: Excellent</p>
-							</td>		
-						</tr>
-					</table>
+	</div><!-- wine list screen ends-->
+	<!--Update wine list-->
+	<div data-role="page" data-theme="a" id="update_wine">
+				<div data-role="content" class="ui-content" data-theme="a">             
+					<p><strong>Do you want to :</strong></p>
+					<a href="#email_wine_list" data-role="button" data-mini="true">ADD WINE</a>
+					<a href="#vintage_wine" data-role="button" data-mini="true">ADD WINE VINTAGE/PRICE</a>
+					<a href="#remove_wine" data-role="button" data-mini="true">REMOVE WINE</a>
 				</div>
 			</div>
-			<!-- footer -->
-			<div data-role="footer" data-position="fixed" class="footer">
-				<div data-role="navbar">
-					<ul>
-						<li class="ui-block-e"><a href="#home" ><img src="images/footer_icon_01.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_02.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_03.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_04.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_05.png"></a></li>						
-					</ul>
-				</div>
+	<!--Update wine list-->
+	<!--Search for wine-->
+
+	<div data-role="page" data-theme="a" id="search_wine">
+		<!--header-->
+
+		<div data-position="fixed" data-role="header">
+			<img class="ui-btn-right" data-inline="true" height="50" id=
+			"logo_r" src="images/logo-r.png"/> 
+			<!--<img  class="ui-btn-left" id="side_icon" src="images/5.png" height="50" data-inline="true"/>-->
+
+			<div class="search_bar">
+				<form action="search.html">
+					<input data-mini="true" id="search-mini" name="search-mini"
+					placeholder="Enter restaurant, zip or subway" type="search"
+					value="">
+				</form>
 			</div>
+		</div><!--content-->
+
+		<div class="content" data-role="content" data-theme="a">
+			<p>Search for and add an individual wine in the text above or renew
+			&lt; insert new restaurant name&gt;'s entire wine list by emailing
+			a picture or document of it to us:</p>
+
+			<form>
+				<input data-mini="true" data-role="button" name="search_wine"
+				type="submit" value="SEND US THE WINE LIST">
+			</form>
+		</div><!-- footer -->
+
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
-		<!-- locate me screen end-->
+	</div><!--Search for wine-->
+	<!--Email Wine list-->
+
+	<div data-role="page" id="email_wine_list">
+		<!--header-->
+	
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c" >
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+
+		<div class="content" data-role="content" data-theme="a">
+			<p>Please email the wine list to us:</p>
+
+			<form>
+				<input name="email_list" type="submit" value=
+				"EMAIL RAISINABLE">
+			</form>
+
+			<p>Or upload the picture of wine list:</p>
+
+			<form>
+				<input name="email_list" type="submit" value="UPLOAD PICTURE">
+			</form>
+			
+			<a class="ui-btn-right" data-icon="arrow-r" data-iconpos="right"
+		data-mini="true" data-role="button" href="#search_wine"  data-theme="a" style="margin:10px; float:right;">Next</a>
+	</div>
+		</div><!--Email Wine list end--><!--add vintage 1-->
+
+	<div data-role="page" id="add_vintage_1">
+		<!--header-->
+
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+
+		<div class="content" data-role="content">
+			<p>If not in the list above, enter the name of wine below:</p>
+
+			<form>
+				<input id="vintage_wine_1" name="vintage_wine_1" placeholder=
+				"[free text field]" type="text">
+
+				<p>Please enter the vintage:</p><input id="vintage_wine_1"
+				name="vintage_wine_1" placeholder="e.g.1998,2010" type="date">
+				<input class="ui-btn-right" data-mini="true" data-role="button"
+				name="submit" type="submit" value="submit">DONE <a class=
+				"ui-btn-left" data-icon="arrow-l" data-mini="true" data-role=
+				"button" href="#">BACK</a>
+			</form>
+		</div>
+	</div><!--add vintage 1 screen end-->
+	<!--add vintage screen 2-->
+
+	<div data-role="page" id="add_vintage_2">
+		<!--content-->
+
+		<div class="content" data-role="content">
+			<p>Please select which of these wines is yours:</p>
+
+			<ul data-role="listview">
+				<li>
+					<a href="#"><img alt="wine_icon" src="iamges/2.png"/>
+
+					<p class="black">jovely Chinon Cabernet Franc</p>
+
+					<p class="grey">loire, France</p></a>
+				</li>
+
+				<li>
+					<a href="#"><img alt="wine_icon" src="iamges/2.png"/>
+
+					<p class="black">jovely Chinon Cabernet Franc</p>
+
+					<p class="grey">loire, France</p></a>
+				</li>
+
+				<li>
+					<a href="#"><img alt="wine_icon" src="iamges/2.png"/>
+
+					<p class="black">jovely Chinon Cabernet Franc</p>
+
+					<p class="grey">loire, France</p></a>
+				</li>
+
+				<li>
+					<a href="#"><img alt="wine_icon" src="iamges/2.png"/>
+
+					<p class="black">jovely Chinon Cabernet Franc</p>
+
+					<p class="grey">loire, France</p></a>
+				</li>
+			</ul>
+
+			<p>If not in the list above, enter the name of wine below:</p>
+
+			<form>
+				<input id="vintage_wine_2" name="vintage_wine_2" placeholder=
+				"[free text field]" type="text">
+
+				<p>Please enter the vintage:</p><input id="vintage_wine_2"
+				name="vintage_wine_2" placeholder="e.g.1998,2010" type="date">
+				<input class="ui-btn-right" data-mini="true" data-role="button"
+				name="submit" type="submit" value="submit">DONE <a class=
+				"ui-btn-left" data-icon="arrow-l" data-mini="true" data-role=
+				"button" href="#">BACK</a>
+			</form>
+		</div><!-- footer -->
+
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div><!--add vintage screen end-->
+	
+	<!--Remove wine from wine list-->
+
+	<div data-role="page" id="remove_wine">
+		<!--header-->
+		<div data-position="fixed" data-role="header">
+			<img class="ui-btn-right" data-inline="true" height="50" id=
+			"logo_r" src="images/logo-r.png"/> 
+			<!--<img  class="ui-btn-left" id="side_icon" src="images/5.png" height="50" data-inline="true"/>-->
+
+			<div class="search_bar">
+				<form action="search.html">
+					<input data-mini="true" id="search-mini" name="search-mini"
+					placeholder="Enter restaurant, zip or subway" type="search"
+					value="">
+				</form>
+			</div>
+		</div><!--content-->
+
+		<div class="content" data-role="content" data-theme="e">
+			
+			<form>
+				<fieldset data-role="controlgroup">
+					<div class="wine-list">
+						<p>Please tick wines that are no
+					longer in the winelist to remove them:</p>
+						
+						<table style="width:98%;">
+							<tr>
+								<td class="th col1"></td>
 		
+								<td class="th col2"></td>
 		
-		<!-- wine profile screen -->
-		<div data-role="page" data-theme="a" id="wine-profile" class="content">
-			<!-- header-->
-			<div data-role="header" data-position="inline">
-				<table width="100%">
-					<tr>
-						<td width="10%"><img src="images/raisinable-logo.png" height="50" width="40" data-inline="true"/></td>
-						<td width="90%"><form action="#winelist">
-							<input placeholder="enter restaurant or wine name" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
-						</form></td>
-					</tr>
-				</table>
-			</div>
-			<!-- content -->
-			<div data-role="content" style="padding:0;">
-				<div class="table-list">
-					<table width="100%">
-						<tr>
-							<td width="100%"><p>Are you in one of these restaurants?</p></td>				
-						</tr>
-						<tr width="100%">
-							
-							<td class="left" width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">Little Owl</p>
-								<p class="grey">90 Bedford Street</p>
-								<p class="purple">Raisinable Rating: OK</p>
-							</td>
-							<td class="left" width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">Perilla</p>
-								<p class="grey">9 Jones Street</p>
-								<p class="purple">Raisinable Rating: Good</p>
-							</td>
-							<td class="left" width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">Pinto</p>
-								<p class="grey">118 Christopher Street</p>
-								<p class="purple">Raisinable Rating: None</p>
-							</td>	
-							<td class="left" width="100%">
-								<img class="rest_icon" src="images/2.png">
-								<p class="black">One If By Land, Two If By Sea</p>
-								<p class="grey">17 Barrow Street</p>
-								<p class="purple">Raisinable Rating: Excellent</p>
-							</td>		
-						</tr>
-					</table>
-				</div>
-			</div>
-			<!-- footer -->
-			<div data-role="footer" data-position="fixed" class="footer">
-				<div data-role="navbar">
-					<ul>
-						<li class="ui-block-e"><a href="#home" ><img src="images/footer_icon_01.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_02.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_03.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_04.png"></a></li>
-						<li class="ui-block-e"><a href="#" ><img src="images/footer_icon_05.png"></a></li>						
-					</ul>
-				</div>
+								<td class="th col3">Restaurant price</td>
+		
+								<td class="th col4">% Mark-up</td>
+		
+								<td class="th col5">$ Mark-up</td>
+							</tr>
+		
+							<tr>
+								<td class="left col1"><input id="checkbox-1" name="checkbox-1" type="checkbox" class="remove_checkbox"></td>
+		
+								<td class="left col2">
+									<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+									Be..</p>
+		
+									<p class="grey">Veneto, Italy, NV</p>
+								</td>
+		
+								<td class="left col3">
+									<p>$44</p>
+								</td>
+		
+								<td class="vin_color col4">
+									<p>267%</p>
+								</td>
+		
+								<td class="left col5">
+									<p>$37</p>
+								</td>
+							</tr>
+		
+							<tr>
+								<td class="left col1"><input id="checkbox-2" name="checkbox-2" type="checkbox" class="remove_checkbox"></td>
+		
+								<td class="left col2">
+									<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+									Be..</p>
+		
+									<p class="grey">Veneto, Italy, NV</p>
+								</td>
+		
+								<td class="left col3">
+									<p>$44</p>
+								</td>
+		
+								<td class="vin_color col4">
+									<p>267%</p>
+								</td>
+		
+								<td class="left col5">
+									<p>$37</p>
+								</td>
+							</tr>
+		
+							<tr>
+								<td class="left col1"><input id="checkbox-3" name="checkbox-3" type="checkbox" class="remove_checkbox"></td>
+		
+								<td class="left col2">
+									<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+									Be..</p>
+		
+									<p class="grey">Veneto, Italy, NV</p>
+								</td>
+		
+								<td class="left col3">
+									<p>$44</p>
+								</td>
+		
+								<td class="vin_color col4">
+									<p>267%</p>
+								</td>
+		
+								<td class="left col5">
+									<p>$37</p>
+								</td>
+							</tr>
+		
+							<tr>
+								<td class="left col1"><input id="checkbox-4" name="checkbox-4" type="checkbox" class="remove_checkbox"></td>
+		
+								<td class="left col2">
+									<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+									Be..</p>
+		
+									<p class="grey">Veneto, Italy, NV</p>
+								</td>
+		
+								<td class="left col3">
+									<p>$44</p>
+								</td>
+		
+								<td class="vin_color col4">
+									<p>267%</p>
+								</td>
+		
+								<td class="left col5">
+									<p>$37</p>
+								</td>
+							</tr>
+		
+							<tr>
+								<td class="left col1"><input id="checkbox-5" name="checkbox-5" type="checkbox" class="remove_checkbox"></td>
+		
+								<td class="left col2">
+									<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+									Be..</p>
+		
+									<p class="grey">Veneto, Italy, NV</p>
+								</td>
+		
+								<td class="left col3">
+									<p>$44</p>
+								</td>
+		
+								<td class="vin_color col4">
+									<p>267%</p>
+								</td>
+		
+								<td class="left col5">
+									<p>$37</p>
+								</td>
+							</tr>
+		
+							<tr>
+								<td class="left col1"><input id="checkbox-6" name="checkbox-6" type="checkbox" class="remove_checkbox"></td>
+		
+								<td class="left col2">
+									<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+									Be..</p>
+		
+									<p class="grey">Veneto, Italy, NV</p>
+								</td>
+		
+								<td class="left col3">
+									<p>$44</p>
+								</td>
+		
+								<td class="vin_color col4">
+									<p>267%</p>
+								</td>
+		
+								<td class="left col5">
+									<p>$37</p>
+								</td>
+							</tr>
+		
+							<tr>
+								<td class="left col1"><input id="checkbox-7" name="checkbox-7" type="checkbox" class="remove_checkbox"></td>
+		
+								<td class="left col2">
+									<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+									Be..</p>
+		
+									<p class="grey">Veneto, Italy, NV</p>
+								</td>
+		
+								<td class="left col3">
+									<p>$44</p>
+								</td>
+		
+								<td class="vin_color col4">
+									<p>267%</p>
+								</td>
+		
+								<td class="left col5">
+									<p>$37</p>
+								</td>
+							</tr>
+		
+							<tr>
+								<td class="left col1"><input id="checkbox-8" name="checkbox-8" type="checkbox" class="remove_checkbox"></td>
+		
+								<td class="left col2">
+									<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+									Be..</p>
+		
+									<p class="grey">Veneto, Italy, NV</p>
+								</td>
+		
+								<td class="left col3">
+									<p>$44</p>
+								</td>
+		
+								<td class="vin_color col4">
+									<p>267%</p>
+								</td>
+		
+								<td class="left col5">
+									<p>$37</p>
+								</td>
+							</tr>
+		
+							<tr>
+								<td class="left col1"><input id="checkbox-9" name="checkbox-9" type="checkbox" class="remove_checkbox"></td>
+		
+								<td class="left col2">
+									<p class="black">Prosecco, Ca’ Furlan ‘Cuvee
+									Be..</p>
+		
+									<p class="grey">Veneto, Italy, NV</p>
+								</td>
+		
+								<td class="left col3">
+									<p>$44</p>
+								</td>
+		
+								<td class="vin_color col4">
+									<p>267%</p>
+								</td>
+		
+								<td class="left col5">
+									<p>$37</p>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</fieldset>
+			</form>
+			<div style="width:60px; margin: 0 auto;">			
+			<a data-inline="true" data-mini="true" data-role="button"
+			data-theme="a" href="#home">DONE</a>
 			</div>
 		</div>
-		<!-- wine profile screen end-->
-	</body>
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div><!--Remove wine from wine list end-->
+
+	<!-- locate me screen -->
+	<div data-role="page" data-theme="a" id="locateme">
+		
+		<!--header-->
+		<div data-position="fixed" data-role="header">
+			<img class="ui-btn-right" data-inline="true" height="50" id=
+			"logo_r" src="images/logo-r.png"/> 
+			<!--<img  class="ui-btn-left" id="side_icon" src="images/5.png" height="50" data-inline="true"/>-->
+
+			<div class="search_bar">
+				<form action="search.html">
+					<input data-mini="true" id="search-mini" name="search-mini"
+					placeholder="Enter restaurant, zip or subway" type="search"
+					value="">
+				</form>
+			</div>
+		</div>
+		
+		<!-- content -->
+		<div class="content" data-role="content" style="padding:15px;">
+			<p>Are you in one of these restaurants?</p>
+
+			<ul class="solid_line" data-role="listview" data-theme="e" style=
+			"padding:10px;">
+				<li>
+					<a href="#winelist">
+					<p class="black"><strong>Little Owl</strong></p>
+
+					<p class="grey">90 Bedford Street</p>
+
+					<p class="purple"><strong>Raisinable Rating:
+					OK</strong></p></a>
+				</li>
+
+				<li>
+					<a href="#winelist">
+					<p class="black"><strong>Little Owl</strong></p>
+
+					<p class="grey">90 Bedford Street</p>
+
+					<p class="purple"><strong>Raisinable Rating:
+					OK</strong></p></a> 
+					<!--<a href="#home" data-icon="arrow-r" data-inline="true"></a>-->
+				</li>
+
+				<li>
+					<a href="#winelist">
+					<p class="black"><strong>Little Owl</strong></p>
+
+					<p class="grey">90 Bedford Street</p>
+
+					<p class="purple"><strong>Raisinable Rating:
+					OK</strong></p></a> 
+					<!--<a href="#home" data-icon="arrow-r" data-inline="true"></a>-->
+				</li>
+
+				<li>
+					<a href="#winelist">
+					<p class="black"><strong>Little Owl</strong></p>
+
+					<p class="grey">90 Bedford Street</p>
+
+					<p class="purple"><strong>Raisinable Rating:
+					OK</strong></p></a> 
+					<!--<a href="#home" data-icon="arrow-r" data-inline="true"></a>-->
+				</li>
+
+				<li>
+					<a href="#winelist">
+					<p class="black"><strong>Little Owl</strong></p>
+
+					<p class="grey">90 Bedford Street</p>
+
+					<p class="purple"><strong>Raisinable Rating:
+					OK</strong></p></a> 
+					<!--<a href="#home" data-split-icon="arrow-r" data-inline="true"></a>-->
+				</li>
+			</ul>
+		</div><!-- footer -->
+
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div><!-- locate me screen end-->
+	
+	<!-- wine profile screen -->
+
+	<div data-role="page" data-theme="a" id="wine_profile">
+		<!--header-->
+
+		<div data-position="fixed" data-role="header">
+			<img class="ui-btn-right" data-inline="true" height="50" id=
+			"logo_r" src="images/logo-r.png"/> 
+			<!--<img  class="ui-btn-left" id="side_icon" src="images/5.png" height="50" data-inline="true"/>-->
+
+			<div class="search_bar">
+				<form action="search.html">
+					<input data-mini="true" id="search-mini" name="search-mini"
+					placeholder="Enter restaurant, zip or subway" type="search"
+					value="">
+				</form>
+			</div>
+		</div><!-- content -->
+
+		<div class="content" data-role="content" style="padding:0;">
+			<table>
+				<tr>
+					<td width="100%">
+						<img alt="wine_thumb" class="wine_thumb" src=
+						"images/wine-holding.png"/>
+
+						<p class="black"><strong>Counti di Bascareto Lacrima di
+						Morro d'Alba</strong></p>
+
+						<p class="grey">Marche, Italy</p>
+
+						<p class="grey">2011</p>
+
+						<p class="purple"><strong>Raisinable Rating:
+						Ok</strong></p>
+					</td>
+				</tr>
+			</table>
+
+			<div class="about_me_info">
+				<p class="wine_info"><strong>Color : <img alt="add_wine_icon"
+				class="about" src="images/red.png" style=
+				"width:15px; height:15px;"/></strong></p>
+
+				<p class="wine_info"><strong>Body : Light</strong></p>
+
+				<p class="wine_info"><strong>Grape : Lacrima</strong></p>
+
+				<p class="wine_info"><strong>Price Range on the database of
+				Wines(US Retails): $15-$17</strong></p>
+
+				<p class="wine_info"><strong>Food Pairing : Duck ,
+				Pork</strong></p>
+			</div>
+<hr/>
+			<div class="ui-grid-b">
+				<div class="ui-block-a border-right">
+					<a href=""><img class="grid_icon" src=
+					"images/4.png"/></a>
+				</div>
+
+				<div class="ui-block-b border-right">
+					<a href=""><img class="grid_icon" src=
+					"images/2.png"/></a>
+				</div>
+
+				<div class="ui-block-c">
+					<a href=""><img class="grid_icon" src=
+					"images/6.png"/></a>
+				</div>
+			</div><!-- /grid-b --><!-- footer -->
+
+			<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c" >
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		</div>
+	</div><!-- wine profile screen end-->
+	
+	<!--Add restaurant-->
+
+	<div data-role="page" data-theme="a" id="add_restaurant">
+		<!--header-->
+
+		<div data-position="fixed" data-role="header">
+			<img class="ui-btn-right" data-inline="true" height="50" id=
+			"logo_r" src="images/logo-r.png"/> 
+			<!--<img  class="ui-btn-left" id="side_icon" src="images/5.png" height="50" data-inline="true"/>-->
+
+			<div class="search_bar">
+				<form action="search.html">
+					<input data-mini="true" id="search-mini" name="search-mini"
+					placeholder="Enter restaurant, zip or subway" type="search"
+					value="">
+				</form>
+			</div>
+		</div><!--content-->
+
+		<div class="content" data-role="content" style="padding:15px;">
+			<form action="#add_info_restaurant" method="post">
+				<label for="name_of_restaurant">What is the name of the
+				restaurant you would like to add?</label> <input name=
+				"name_of_restaurant" placeholder="Add the name of Restaurant"
+				required="" type="text"> <label for="address">What is the
+				address of Restaurant?</label>
+
+				<div class="address">
+					<input name="address" placeholder="Block/Street name"
+					required="" type="text"> <input name="address" placeholder=
+					"City/State" required="" type="text"> <input name="address"
+					placeholder="Pin Code" required="" type="text">
+				</div>
+
+				<p>Improve The Location: Improve the map until pin is directly
+				over &lt; insert name of the restaurant&gt;</p>
+
+				<div class="map">
+					<h2>map</h2>
+				</div>
+			</form><a data-icon="arrow-r" data-iconpos="right" data-inline=
+			"true" data-mini="true" data-role="button" data-theme="a" href=
+			"#add_info_restaurant" style="margin: 0;">Next</a>
+		</div><!-- footer -->
+
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div><!--Add restaurant screen end-->
+	<!--Add info of restaurant-->
+
+	<div data-role="page" data-theme="a" id="add_info_restaurant">
+		<!--header-->
+
+		<div data-position="fixed" data-role="header">
+			<img class="ui-btn-right" data-inline="true" height="50" id=
+			"logo_r" src="images/logo-r.png"/> 
+			<!--<img  class="ui-btn-left" id="side_icon" src="images/5.png" height="50" data-inline="true"/>-->
+
+			<div class="search_bar">
+				<form action="search.html">
+					<input data-mini="true" id="search-mini" name="search-mini"
+					placeholder="Enter restaurant, zip or subway" type="search"
+					value="">
+				</form>
+			</div>
+		</div><!--content-->
+
+		<div class="content" data-role="content" style="padding:15px;">
+			<form action="" method="post">
+				<label for="add_time">What are the opening hours?</label>
+				<input name="add_time" type="text"> <label for="food">What type
+				of food?</label>
+
+				<fieldset class="controlgroup">
+					<select data-theme="b" id="food" name="food">
+						<option value="1">
+							One
+						</option>
+
+						<option value="2">
+							two
+						</option>
+
+						<option value="3">
+							Three
+						</option>
+
+						<option value="4">
+							Four
+						</option>
+					</select>
+				</fieldset><label for="cost">Approximate Cost</label>
+				<input name="cost" placeholder="$ $ $ $ $" required="" type=
+				"text" value=""> <label for="website_add">Website
+				Address</label> <input name="website_add" type="email" value=
+				""> <label for="tel_no">Telephone Number?</label> <input name=
+				"tel_no" type="tel" value=""> <a data-mini="true" data-role=
+				"button" data-theme="a" href="#add_wine">Add wine to this
+				Restaurant</a>
+			</form><a data-icon="arrow-r" data-iconpos="right" data-inline=
+			"true" data-mini="true" data-role="button" data-theme="a" href=
+			"#index.php" style="margin: 5px 0;">Done</a>
+		</div>
+
+		<!-- footer -->
+
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div><!--Add info of restaurant end-->
+	<!--Favorite Wine List-->
+
+	<div data-role="page" data-theme="a" id="favorite_wine_list">
+		<!--header-->
+
+		<div data-position="fixed" data-role="header">
+			<img class="ui-btn-right" data-inline="true" height="50" id=
+			"logo_r" src="images/logo-r.png"/> 
+			<!--<img  class="ui-btn-left" id="side_icon" src="images/5.png" height="50" data-inline="true"/>-->
+
+			<div class="search_bar">
+				<form action="search.html">
+					<input data-mini="true" id="search-mini" name="search-mini"
+					placeholder="Enter restaurant, zip or subway" type="search"
+					value="">
+				</form>
+			</div>
+		</div><!--content-->
+
+		<div class="content" data-role="content">
+			<ul class="solid_line" data-role="listview" data-theme="e">
+				<li>
+					<a href="#wine_profile"><img alt="wine_1" src=
+					"images/wine-holding.png"/>
+
+					<p class="black">Viognier,Jaffurs,Santa Barbara ’10</p>
+
+					<p class="grey">Jo’s Restaurant, Nolita</p>
+
+					<p class="purple"><strong>Raisinable Wine Ra9ng:
+					Excellent</strong></p>
+
+					<p class="bold_purple_1"><strong>BUY ON NAKED
+					WINES</strong></p></a>
+				</li>
+
+				<li>
+					<a href="#wine_profile"><img alt="wine_1" class="wine_thumb_1"
+					src="images/wine-holding.png"/>
+
+					<p class="black">Viognier,Jaffurs,Santa Barbara ’10</p>
+
+					<p class="grey">Jo’s Restaurant, Nolita</p>
+
+					<p class="purple"><strong>Raisinable Wine Rating:
+					Excellent</strong></p>
+
+					<p class="bold_purple_1"><strong>BUY ON NAKED
+					WINES</strong></p></a>
+				</li>
+
+				<li>
+					<a href="#wine_profile"><img alt="wine_1" class="wine_thumb_1"
+					src="images/wine-holding.png"/>
+
+					<p class="black">Viognier,Jaffurs,Santa Barbara ’10</p>
+
+					<p class="grey">Jo’s Restaurant, Nolita</p>
+
+					<p class="purple"><strong>Raisinable Wine Rating:
+					Excellent</strong></p>
+
+					<p class="bold_purple_1"><strong>BUY ON NAKED
+					WINES</strong></p></a>
+				</li>
+
+				<li>
+					<a href="#wine_profile"><img alt="wine_1" class="wine_thumb_1"
+					src="images/wine-holding.png"/>
+
+					<p class="black">Nebbiollo, Barulo, Parusso, Italy 2009</p>
+
+					<p class="grey">Little Owl drunk yesterday</p>
+
+					<p class="purple"><strong>Raisinable Wine Rating:
+					Good</strong></p>
+
+					<p class="bold_purple_1"><strong>My Rating:</strong></p>
+
+					<div class="rating"><img alt="grapes" src=
+					"images/grapes.png"/> <img alt="grapes" src=
+					"images/grapes.png"/> <img alt="grapes" src=
+					"images/grapes.png"/>
+					</div>
+					</a>
+				</li>
+			</ul>
+		</div><!-- footer -->
+
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div><!--End of Favorite Wine List-->
+	
+		<!--Settings-->
+		<div data-role="page" id="settings">
+			
+			<!--header-->			
+				<div data-role="header" data-position="fixed">
+					<img  class="ui-btn-right" id="logo_r" src="images/logo-r.png" height="50" data-inline="true"/>
+					<!--<img  class="ui-btn-left" id="side_icon" src="images/5.png" height="50" data-inline="true"/>-->
+				<div class="search_bar">
+					<form action="search.html" >
+						<input placeholder="Enter restaurant, zip or subway" type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+					</form>
+				</div>
+				</div>
+			
+			<!--content-->
+			<div data-role="content" class="content">
+				<ul data-role="listview" data-theme="b">
+					
+					<li><a href="#clear_history" data-rel="popup" data-transition="pop" data-rel="back">Clear History</a></li>
+					<li><a href="#help_center" data-rel="popup" data-transition="pop" data-rel="back"> Help Center</a></li>
+					<li><a href="#logout" data-rel="popup" data-transition="pop" data-rel="back">Logout</a></li>
+					<li><a href="#notification">Notifications</a></li>
+					<li><a href="#privacy" data-rel="popup" data-transition="pop" data-rel="back">Privacy</a></li>
+					<li><a href="#terms" data-rel="popup" data-transition="pop" data-rel="back">Terms of Services</a></li>		
+								
+				</ul>
+			</div>
+			
+			
+		<!--Popup of clear history-->
+			<div data-role="popup" data-overlay-theme="a" id="clear_history" class="ui-content" 
+					data-position-to="window" data-rel="back">
+			<div data-role="content">
+				<p>Clear recent, keyword and location history from Raisinable?</p>
+				<div class="popup_button">	
+					<a href="#" data-role="button" data-mini="true" data-rel="back" data-theme="a" 
+								data-inline="true" >No</a>
+					<a href="#" data-role="button" data-mini="true" data-theme="a" data-inline="true" >Yes</a> 				
+				</div>
+			</div>
+			</div>
+		<!--Popup of clear history end-->
+			
+			
+		<!--Popup of Help Center-->
+			<div data-role="popup" data-overlay-theme="a" id="help_center" data-position-to="window"
+					data-rel="back" class="ui-content">
+			<div data-role="content">
+				<p>Clear recent, keyword and location history from Raisinable?</p>
+			<div class="popup_button">			
+				<a href="#" data-role="button" data-mini="true" data-rel="back" data-theme="a"
+							 data-inline="true" >No</a>
+				<a href="#" data-role="button" data-mini="true" data-theme="a" data-inline="true">Yes</a> 				
+			</div>
+			</div>
+			</div>
+		<!--Popup of help center end-->
+
+
+		<!--Popup of logout-->
+			<div data-role="popup" data-overlay-theme="a" id="logout" data-position-to="window" 
+					data-rel="back" class="ui-content">
+			<div data-role="content">
+				<p>You are now logged out of Raisinable.</p>			
+			</div>
+			</div>
+		<!--Popup of logout end-->
+	
+			
+		<!--page notification-->			
+		<div data-role="page" id="notification" >
+			<div data-role="content">
+				<p>Notify me of the following:</p>
+		
+				<form>
+					<ul data-role="listview">
+						
+							<fieldset data-role="controlgroup">			
+								<li>		
+								
+								<label for="comments">Comments on your activity</label>
+								<input type="checkbox" name="comments" value="comments" />					
+						
+								<label for="request">Drinking buddy request</label>
+								<input type="checkbox" name="request" value="request" />					
+						
+								<label for="confirmation">Drinking buddy Confirmations</label>
+								<input type="checkbox" name="confirmation" value="confirmation" />						
+						
+								<label for="endorsement">Endorsements of your activity</label>
+								<input type="checkbox" name="endorsement" value="endorsement" />						
+						
+								<label for="tag_drinkin">Tags of You in Drink-ins</label>
+								<input type="checkbox" name="tag_drinkin" value="tag_drinkin" />				
+						
+								<label for="tag_photo">Tags of You in Photos</label>
+								<input type="checkbox" name="tag_photo" value="tag_photo" />				
+						
+								<label for="email_notify">Email Notifications About Your Account Security and Privacy</label>
+								<input type="checkbox" name="email_notify" value="email_notify" />					
+													
+								</li>
+						</fieldset>
+					</ul>
+				</form>
+				
+			</div>
+				
+			<!-- footer -->
+			<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>			
+			
+		</div>
+		<!--page notification end-->
+		
+			
+		<!--Popup of privacy-->
+			<div data-role="popup" data-overlay-theme="a" id="privacy" data-position-to="window" 
+					data-rel="back" class="ui-content">
+			<div data-role="content">
+				<p>Who can see your list of Drink-Ins, Favorites, and Profile?</p>
+				<div style="width:220px; margin:0 auto;">
+					<a href="#" data-role="button" data-mini="true" data-rel="back" data-theme="a" data-inline="true">Drinking Buddies</a>
+					<a href="#" data-role="button" data-mini="true" data-theme="a" data-inline="true">Everyone</a> 				
+				</div>
+			</div>
+			</div>
+		<!--Popup of privacy-->
+		
+		<!--Popup of Terms of Services-->
+			<div data-role="popup" data-overlay-theme="a" id="terms" data-position-to="window" class="ui-content" data-rel="back">
+			<div data-role="content">
+				<p>You are now logged out of Raisinable.</p>			
+			</div>
+			</div>
+		<!--Popup of terms of Services end-->
+	
+		
+			
+			<!-- footer -->
+			<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		</div>
+
+		<!--settings page end-->
+	
+	
+	<!--Raisinable status-->
+
+	<div data-role="page" data-theme="b" id="raisinable_status">
+		<div class="content" data-role="content" style="padding:15px;">
+			<ul data-role="listview">
+				<li>
+					<img alt="raisinable status icon" class="ui-btn-left" src=
+					"images/king-cork-dork.png"/> <span></span>
+
+					<p class="black"><span><strong>1st
+					position:</strong></span></p>
+
+					<p class="black"><span><em>King of the Cork
+					Dorks</em></span></p>
+
+					<p class="black"><span><strong>Favorite Wine:</strong>
+					<em>Margaux</em></span></p>
+
+					<p class="black"><span><strong>Favorite Film:</strong>
+					???</span></p>
+				</li>
+
+				<li>
+					<img alt="raisinable status icon" class="ui-btn-left" src=
+					"images/alexander-the-grape.png"/> <span></span>
+
+					<p class="black"><span><strong>2nd
+					position:</strong></span></p>
+
+					<p class="black"><span><em>Alexander the
+					Grape</em></span></p>
+
+					<p class="black"><span><strong>Favorite Wine:</strong>
+					<em>Opus 1</em></span></p>
+
+					<p class="black"><span><strong>Favorite Quote:</strong>
+					<em>And Alexander wept for he has no more world's to
+					conquer</em></span></p>
+				</li>
+
+				<li>
+					<img alt="raisinable status icon" class="ui-btn-left" src=
+					"images/all-time-grape.png"/>
+
+					<p class="black"><strong>3rd position:</strong></p>
+
+					<p class="black"><em>Amazing' Raisin</em></p>
+
+					<p class="black"><strong>Favorite Wine:</strong> <em>White
+					Burgandy</em></p>
+
+					<p class="black"><strong>Favorite Song:</strong> The
+					Vine-El Countdown</p>
+				</li>
+
+				<li style="list-style: none; display: inline">
+					<div data-icon="arrow-d" data-inline="true" data-mini=
+					"true" data-role="button" data-theme="a"></div>
+				</li>
+			</ul>
+		</div>
+	</div><!--Raisinable status screen end-->
+	
+	<!--About me screen-->
+
+	<div data-role="page" data-theme="a" id="about_me">
+		<!--Header-->
+
+		<div class="content" data-role="content">
+			<table class="fullwidth">
+				<tr>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td width="100%">
+						<span class="right"><img alt="drink-in icon" class=
+						"status_icon" src=
+						"images/alexander-the-grape.png"/></span> <img alt=
+						"wine_thumb" class="wine_thumb" src=
+						"images/Box_Grey.png"/>
+
+						<p class="black"><strong>Alice Crowford</strong></p>
+
+						<p class="grey">New York</p>
+
+						<p class="grey">25 Wine Reviews</p>
+
+						<p class="grey">5 Drinks-in</p>
+
+						<p class="purple" style=
+						"margin-top: 10px; margin-bottom: 3px; margin-left: 90px;">
+						<img alt="status icon" src="images/status_icon.png"
+						style="width:25px;"/> <strong>Raisinable status: Wine
+						Buff</strong></p>
+						<!--<a href="#" style="padding: 0;margin-left: 10px;margin-top: -23px;" class="ui-btn-left" data-role="button" data-icon="arrow-l" data-iconpos="notext"></a>-->
+					</td>
+				</tr>
+			</table><!--content-->
+
+			<div class="about_me_info">
+				<p><img alt="add_wine_icon" class="about" src=
+				"images/add_wine.png"/><strong>Wines Added: 35</strong></p>
+
+				<p><img alt="add_wine_icon" class="about" src=
+				"images/wine_review.png"/><strong>Wines Reviews: 25</strong></p>
+
+				<p><img alt="add_wine_icon" class="about" src=
+				"images/drink_in.png"/><strong>Drink-ins: 9</strong></p>
+
+				<p><img alt="add_wine_icon" class="about" src=
+				"images/favorites.png"/><strong>favorite Wines: 18</strong></p>
+
+				<p><img alt="add_wine_icon" class="about" src=
+				"images/drinking-buddies.png"/><strong>Drinking Buddies:
+				26</strong></p>
+			</div>
+			<hr/>
+			<div class="ui-grid-b">
+				<div class="ui-block-a border-right">
+					<a href="#home"><img class="grid_icon" src=
+					"images/status_icon.png"/></a>
+				</div>
+
+				<div class="ui-block-b border-right">
+					<a href="#home"><img class="grid_icon" src=
+					"images/drink_in.png" height="70"/></a>
+				</div>
+
+				<div class="ui-block-c">
+					<a href="#home"><img class="grid_icon" src=
+					"images/settings.png" height="70"/></a>
+				</div>
+			</div><!-- /grid-b -->
+		</div><!-- footer -->
+
+		<div class="footer" data-position="fixed" data-role="footer"
+		data-theme="c">
+			<div data-role="navbar">
+				<ul class="ui-grid-d">
+					<li class="ui-block-e">
+						<a href="#home"><img src=
+						"images/footer_icon_01.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#locateme"><img src="images/footer_icon_02.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#"><img src="images/footer_icon_03.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#add_restaurant"><img src="images/footer_icon_04.png"/></a>
+					</li>
+
+					<li class="ui-block-e">
+						<a href="#favorite_wine_list"><img src="images/footer_icon_05.png"/></a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div><!--About me screen end-->
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
